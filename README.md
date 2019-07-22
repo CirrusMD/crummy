@@ -16,7 +16,7 @@ gem "crummy", "~> 1.8.0"
 
 # Example
 
-In your controllers you may add\_crumb either like a before\_filter or
+In your controllers you may add_crumb either like a before_action or
 within a method (It is also available to views).
 
 ```ruby
@@ -27,7 +27,7 @@ end
 class BusinessController < ApplicationController
   add_crumb("Businesses") { |instance| instance.send :businesses_path }
   add_crumb("Comments", only: "comments") { |instance| instance.send :businesses_comments_path }
-  before_filter :load_comment, only: "show"
+  before_action :load_comment, only: "show"
   add_crumb :comment, only: "show"
 
   # Example for nested routes:
@@ -51,8 +51,8 @@ Then in your view:
 
 ## Html options for breadcrumb link
 
-You can set the html options with *link_html_options*.
-These are added to the *a* tag.
+You can set the html options with _link_html_options_.
+These are added to the _a_ tag.
 
 ```ruby
 add_crumb "Home", '/', link_html_options: {title: "my link title"}
@@ -65,11 +65,11 @@ If tag <code>a</code> present in this html, tag a not be a wrapper.
 add_crumb "<a class='glyphicons shield' href='/support'><i></i>Support</a>".html_safe, "", {}
 ```
 
-## Options for render\_crumbs
+## Options for render_crumbs
 
 `render_crumbs` renders the list of crumbs as either html or xml
 
-The output format. Can either be :xml or :html or :html\_list. Defaults
+The output format. Can either be :xml or :html or :html_list. Defaults
 to :html
 
 ```ruby
@@ -84,7 +84,7 @@ you must specify. Defaults to `&raquo;` for :html and
 separator: string
 ```
 
-Render links in the output. Defaults to *true*
+Render links in the output. Defaults to _true_
 
 ```ruby
 links: false
@@ -92,13 +92,13 @@ links: false
 
 Render
 [Richsnipet](http:/support.google.com/webmasters/bin/answer.py?hl=en&answer=99170&topic=1088472&ctx=topic/)
-Default to *false*
+Default to _false_
 
 ```ruby
 microdata: true
 ```
 
-Optionally disable linking of the last crumb, Defaults to *true*
+Optionally disable linking of the last crumb, Defaults to _true_
 
 ```ruby
 last_crumb_linked: false
@@ -177,11 +177,12 @@ Possible parameters for configuration are:
 See `lib/crummy.rb` for a list of these parameters and their defaults.
 
 ###Individually for each crumb configuration:
+
 ```ruby
 add_crumb support_link, {:right_side => true, :links => "/support", : li_class => "my_class", :li_right_class => "pull-right hidden-phone"}
 ```
-Simple add that parameter to options hash. 
 
+Simple add that parameter to options hash.
 
 ## Live example application
 
@@ -189,32 +190,32 @@ An example application is available right inside this gem. That application is d
 
 ## Todo
 
--   Accept collections of models as a single argument
--   Accept instances of models as a single argument
--   Allow for variables in names. (The workaround is to do your own
-    before\_filter for that currently)
--   Make a crumbs? type method
+- Accept collections of models as a single argument
+- Accept instances of models as a single argument
+- Allow for variables in names. (The workaround is to do your own
+  before_action for that currently)
+- Make a crumbs? type method
 
 ## Credits
 
--   [Zach Inglis](http://zachinglis.com) of [Superhero Studios](http://superhero-studios.com)
--   [Andrew Nesbitt](http://github.com/andrew)
--   [Rein Henrichs](http://reinh.com)
--   [Les Hill](http://blog.leshill.org/)
--   [Sandro Turriate](http://turriate.com/)
--   [Przemysław
-    Kowalczyk](http://szeryf.wordpress.com/2008/06/13/easy-and-flexible-breadcrumbs-for-rails/)
-    - feature ideas
--   [Sharad Jain](http://github.com/sjain)
--   [Max Riveiro](http://github.com/kavu)
--   [Kamil K. Lemański](http://kml.jogger.pl)
--   [Brian Cobb](http://bcobb.net/)
--   [Kir Shatrov](http://github.com/shatrov) ([Evrone
-    company](http://evrone.com))
--   [sugilog](http://github.com/sugilog)
--   [Trond Arve Nordheim](http://github.com/tanordheim)
--   [Jan Szumiec](http://github.com/jasiek)
--   [Jeff Browning](http://github.com/jbrowning)
--   [Bill Turner](http://github.com/billturner)
+- [Zach Inglis](http://zachinglis.com) of [Superhero Studios](http://superhero-studios.com)
+- [Andrew Nesbitt](http://github.com/andrew)
+- [Rein Henrichs](http://reinh.com)
+- [Les Hill](http://blog.leshill.org/)
+- [Sandro Turriate](http://turriate.com/)
+- [Przemysław
+  Kowalczyk](http://szeryf.wordpress.com/2008/06/13/easy-and-flexible-breadcrumbs-for-rails/)
+  - feature ideas
+- [Sharad Jain](http://github.com/sjain)
+- [Max Riveiro](http://github.com/kavu)
+- [Kamil K. Lemański](http://kml.jogger.pl)
+- [Brian Cobb](http://bcobb.net/)
+- [Kir Shatrov](http://github.com/shatrov) ([Evrone
+  company](http://evrone.com))
+- [sugilog](http://github.com/sugilog)
+- [Trond Arve Nordheim](http://github.com/tanordheim)
+- [Jan Szumiec](http://github.com/jasiek)
+- [Jeff Browning](http://github.com/jbrowning)
+- [Bill Turner](http://github.com/billturner)
 
 **Copyright 2008-2013 Zach Inglis, released under the MIT license**
