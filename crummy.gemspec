@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.8.8}
 
   s.add_development_dependency 'rake'
-  s.add_development_dependency 'bundler',     '~> 1.0'
+  s.add_development_dependency 'bundler'
   s.add_development_dependency 'activesupport'
   s.add_development_dependency 'actionpack'
   s.add_development_dependency 'appraisal'
